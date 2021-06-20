@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 from os import replace
 import time
-
+import subprocess
+import sys
 
 def todo_show():
 
@@ -19,7 +20,7 @@ def todo_new():
     # getting list
     f = open("./list.txt", 'a')
 
-    new_todo_task = input("Name of new Task\n : ")
+    new_todo_task = input("Name of new Task\n: ")
 
     # writing task to newline in file
     f.write(new_todo_task + "\n")
@@ -45,7 +46,7 @@ def todo_remove():
         print(f"{id}. {todo}")
         id += 1
 
-    todo_remove_index = int(input("TODO ID: "))
+    todo_remove_index = int(input("TODO ID\n: "))
     todo_list.pop(todo_remove_index)    
     
     todo_list_str = '\n'.join(todo_list)
@@ -54,7 +55,6 @@ def todo_remove():
     print("Successfully writed file!")
     f.close()
 
-todo_remove()
 # deciding task on selecion
 
 def main():
@@ -75,7 +75,13 @@ def main():
         todo_new()
     elif selection == "3":
         # Showing the todo list
-        todo_show()
         todo_remove()
 
-input()
+main()
+while input("Anything else? [y/N]\n: ") == "y":
+    if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
+        subprocess.run(['clear'])
+    elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
+        subprocess.run(['cls'])
+    
+    main()
