@@ -7,11 +7,11 @@ import sys
 def todo_show():
 
     # getting list
-    f = open("./list.txt", 'r')
+    f = open("./list.txt", 'a')
 
     # reaing list
-    todolist = f.read()
-    print(todolist)
+    todo_list = f.read()
+    print(todo_list)
     f.close()
 
 
