@@ -1,10 +1,6 @@
+#!/usr/bin/env python3
 from os import replace
 import time
-
-
-
-
-
 
 print("Welcome to your TODO List")
 time.sleep(1)
@@ -16,10 +12,6 @@ print("2: Add to List")
 time.sleep(0.25)
 print("3: Remove from List")
 selection = input(": ")
-
-
-
-
 
 def todo_show():
 
@@ -76,4 +68,8 @@ if selection == "1":
 elif selection == "2":
     todo_new()
 elif selection == "3":
+    # Showing the todo list
+    todo_show()
     todo_remove()
+
+input()
