@@ -70,6 +70,7 @@ def main():
     time.sleep(0.25)
     print("q: Quit")
     selection = input(": ")
+
     if selection == "1":
         todo_show()
     elif selection == "2":
@@ -82,8 +83,8 @@ def main():
 def clear_screen():
     if sys.platform.startswith('linux') or sys.platform.startswith('darwin'):
         subprocess.run(['clear'])
-    elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
-        subprocess.run(['cls'])
+    # elif sys.platform.startswith('win32') or sys.platform.startswith('cygwin'):
+    #     subprocess.run(['cls'])
 
 main()
 while input("Anything else? [y/N]\n: ") == "y":
